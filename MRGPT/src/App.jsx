@@ -1,5 +1,6 @@
 import { useState, useRef } from "react";
 import OpenAI from "openai";
+import axios from 'axios';
 import { personaOptions } from "./personas";
 import "./App.scss";
 import { useEffect } from "react";
@@ -7,11 +8,11 @@ function App() {
   const messageRef = useRef();
   const chatRef = useRef();
   const btnRef = useRef();
-  const openai = new OpenAI({
-    organization: import.meta.env.VITE_ORGANISATION_KEY,
-    apiKey: import.meta.env.VITE_OPENAI_API_KEY,
-    dangerouslyAllowBrowser: true,
-  });
+  // const openai = new OpenAI({
+  //   organization: import.meta.env.VITE_ORGANISATION_KEY,
+  //   apiKey: import.meta.env.VITE_OPENAI_API_KEY,
+  //   dangerouslyAllowBrowser: true,
+  // });
   const [loading, setloading] = useState(false);
 
   const [chat, setChat] = useState([
@@ -34,19 +35,27 @@ function App() {
     messageRef.current.value = "";
     checkInput();
     try {
-      const result = await openai.chat.completions.create({
-        messages: [
-          { role: "system", content: "You are a helpful assistant." },
-          ...chat,
-        ],
+      // const result = await openai.chat.completions.create({
+      //   messages: [
+      //     { role: "system", content: "You are a helpful assistant." },
+      //     ...chat,
+      //   ],
+      //   temperature: randomness,
+      //   model: model,
+      // });
+      const result = await axios("http://localhost:3000/",{
+        params:{
+        messages:[
+              { role: "system", content: "You are a helpful assistant." },
+              ...chat,
+            ],
         temperature: randomness,
         model: model,
-      });
-      // console.log(result);
+      }})
       // console.log(result.choices[0].message)
       chat.push({
-        role: result.choices[0].message.role,
-        content: result.choices[0].message.content,
+        role: result.data.choices[0].message.role,
+        content: result.data.choices[0].message.content,
       });
       // setapiresponse(result.choices[0]);
     } catch (err) {
