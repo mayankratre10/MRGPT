@@ -1,0 +1,22 @@
+{
+  "name": "mrgpt_server",
+  "version": "1.0.0",
+  "description": "server for MRGPT To call OpenAP API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MAYANKRATRE10/MRGPT.git"
+  },
+  "author": "Mayank Kumar Ratre",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MAYANKRATRE10/MRGPT/issues"
+  },
+  "homepage": "https://github.com/MAYANKRATRE10/MRGPT#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
