@@ -13,6 +13,7 @@ const callAPI = async(req,res)=>{
         temperature: Number(req.query.temperature),
         model: req.query.model,
     });
+    // console.log(result)
     res.send(result)
 }
 
