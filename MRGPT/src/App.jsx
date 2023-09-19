@@ -46,7 +46,9 @@ function App() {
       const result = await axios("https://mrgpt-server.onrender.com/",{
         params:{
         messages:[
-              { role: "system", content: "You are a helpful assistant." },
+              { role: "system", content: "You are a helpful assistant." },{
+                role: "user", content: "Remember that this is MRGPT application that uses openAI API, Created Mayank Kumar Ratre, a genius, who can make anyone laugh but not a comedian, currently Mayank Kumar Ratre also know as mayank ratre or miku, he was born in bhatapara chhattisgarh village at 9 march 2001 but officials says his true birth is 20 june 2001, Mothers name Dhaneshwari Ratre, Fathers name: Mahesh Kumar Ratre, Sisters name: pratiksha rani ratre. After 5th standard he got selected for Jawahar Novadaya Vidyalaya Raipur and completed his 12th from their, after that he completed his JEE coaching from Dakshana Pune Valley. Currently in final year of B.Tech.in INFORMATION TECHNOLOGY from NIT Raipur. A genius who can do anything."
+              },
               ...chat,
             ],
         temperature: randomness,
