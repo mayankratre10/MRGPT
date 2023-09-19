@@ -43,7 +43,7 @@ function App() {
       //   temperature: randomness,
       //   model: model,
       // });
-      const result = await axios("https://mrgpt-server.onrender.com",{
+      const result = await axios("https://mrgpt-server.onrender.com/",{
         params:{
         messages:[
               { role: "system", content: "You are a helpful assistant." },

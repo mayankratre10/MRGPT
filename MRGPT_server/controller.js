@@ -1,4 +1,5 @@
-const OpenAI = require("openai");
+import OpenAI from 'openai';
+
 require('dotenv').config({path: __dirname + '/.env' })
 const openai = new OpenAI({
     organization: process.env.ORGANISATION_KEY,

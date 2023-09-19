@@ -1,15 +1,15 @@
-const express = require('express');
-// import OpenAI from "openai";
-const cors = require('cors');
+import express from 'express';
+import cors from 'cors';
+
 const app = express();
-const callAPI  = require('./controller');
+import callAPI from './controller';
 
 app.use(cors());
 
 
 app.get("/",callAPI)
 
-const port  = 3000 || process.env.PORT;
+const port  = process.env.PORT || 3000 ;
 app.listen(port, () => {  
     console.log("Server Started At" + port);
 });
