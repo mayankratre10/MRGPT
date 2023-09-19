@@ -1,6 +1,6 @@
 import OpenAI from 'openai';
 
-require('dotenv').config({path: __dirname + '/.env' })
+import 'dotenv/config'
 const openai = new OpenAI({
     organization: process.env.ORGANISATION_KEY,
     apiKey: process.env.OPENAI_API_KEY,
@@ -8,7 +8,7 @@ const openai = new OpenAI({
   });
 
 
-const callAPI = async(req,res)=>{
+export const callAPI = async(req,res)=>{
     const result = await openai.chat.completions.create({
         messages: req.query.messages,
         temperature: Number(req.query.temperature),
@@ -18,4 +18,3 @@ const callAPI = async(req,res)=>{
     res.send(result)
 }
 
-module.exports = callAPI

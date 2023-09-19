@@ -2,7 +2,7 @@ import express from 'express';
 import cors from 'cors';
 
 const app = express();
-import callAPI from './controller';
+import {callAPI} from './controller/controller.js';
 
 app.use(cors());
 
